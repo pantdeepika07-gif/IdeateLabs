@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HackMate Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* New styling for the chat room */
+        .chat-container {
+            max-width: 900px;
+            padding: 20px;
+            display: flex;
+            gap: 20px;
+            flex-direction: column;
+            background: linear-gradient(135deg, #1A1A2E, #16213E);
+        }
+
+        .chat-area {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .chat-window {
+            height: 400px;
+            overflow-y: auto;
+            border: 1px solid #444;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #0E1020;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .message {
+            max-width: 70%;
+            padding: 12px 18px;
+            border-radius: 20px;
+            word-wrap: break-word;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .user-message {
+            background-color: #00ADB5;
+            color: white;
+            align-self: flex-end;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .other-message {
+            background-color: #555;
+            color: white;
+            align-self: flex-start;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        
+        .bot-message {
+            background-color: #7B68EE;
+            color: white;
+            align-self: flex-start;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .message-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .message-form input {
+            flex-grow: 1;
+            margin: 0;
+            border-radius: 20px;
+            padding: 12px 20px;
+            background-color: #2D2D2D;
+            border: 1px solid #444;
+            color: #E0E0E0;
+        }
+
+        .message-form button {
+            background-color: #00ADB5;
+            color: white;
+            border-radius: 20px;
+            padding: 12px 20px;
+            font-size: 16px;
+        }
+
+        .footer-nav {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .footer-nav a {
+            color: #E0E0E0;
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: #00ADB5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container chat-container">
+        <h1>🤖 HackMate</h1>
+        <p>HackMate is here to help you on your quest. Feel free to ask anything!</p>
+        
+        <div class="chat-area">
+            <div id="chat-window" class="chat-window">
+                <!-- Initial bot message with the new persona -->
+                <div class="message bot-message">Hello, traveler! I am HackMate. How may I guide you on your journey today?</div>
+            </div>
+            <form id="message-form" class="message-form">
+                <input type="text" id="message-input" placeholder="Speak to HackMate..." required>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+        
+        <nav class="footer-nav">
+            <a href="idea.html">Idea Generator</a> |
+            <a href="team.html">My Team</a> |
+            <a href="find_team.html">Find a Team</a>
+        </nav>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
